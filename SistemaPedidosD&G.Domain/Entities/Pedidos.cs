@@ -8,7 +8,7 @@ namespace SistemaPedidosD_G.Domain.Entities
 {
     public class Pedidos
     {
-        //Propiedades
+        //PropiedadesS
         public Guid Id { get; private set; }
         public string CodigoPedido { get; private set; } = null!;
         public string Nombre { get; private set; } = null!;
