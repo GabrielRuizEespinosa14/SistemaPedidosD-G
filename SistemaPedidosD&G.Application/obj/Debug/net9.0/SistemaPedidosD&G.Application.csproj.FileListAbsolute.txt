@@ -1,0 +1,11 @@
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\bin\Debug\net9.0\SistemaPedidosD&G.Application.deps.json
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\bin\Debug\net9.0\SistemaPedidosD&G.Application.dll
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\bin\Debug\net9.0\SistemaPedidosD&G.Application.pdb
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.AssemblyInfoInputs.cache
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.AssemblyInfo.cs
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.csproj.CoreCompileInputs.cache
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.dll
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\refint\SistemaPedidosD&G.Application.dll
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.pdb
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\ref\SistemaPedidosD&G.Application.dll

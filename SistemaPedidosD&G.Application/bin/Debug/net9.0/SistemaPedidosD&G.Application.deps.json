@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "SistemaPedidosD&G.Application/1.0.0": {
+        "runtime": {
+          "SistemaPedidosD&G.Application.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SistemaPedidosD&G.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
