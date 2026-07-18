@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Contracts\UseCases\" />
+    <Folder Include="Contracts\Services\" />
+    <Folder Include="Contracts\Persistence\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaPedidosD&amp;G.Domain\SistemaPedidosD&amp;G.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

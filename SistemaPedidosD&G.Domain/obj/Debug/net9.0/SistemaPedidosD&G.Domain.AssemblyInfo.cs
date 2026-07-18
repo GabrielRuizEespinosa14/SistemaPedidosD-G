@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaPedidosD&G.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2b46b1b0539e575860daed9761f8a1819019ebf7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b221dcec22295fc6512209d2218765c6b87a239")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaPedidosD&G.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaPedidosD&G.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
