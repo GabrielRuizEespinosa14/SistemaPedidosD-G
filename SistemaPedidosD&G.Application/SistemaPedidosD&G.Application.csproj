@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\SistemaPedidosD&amp;G.Domain\SistemaPedidosD&amp;G.Domain.csproj" />
   </ItemGroup>
 
