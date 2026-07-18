@@ -9,3 +9,8 @@ C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\
 C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\refint\SistemaPedidosD&G.Application.dll
 C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.pdb
 C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\ref\SistemaPedidosD&G.Application.dll
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\bin\Debug\net9.0\SistemaPedidosD&G.Domain.dll
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\bin\Debug\net9.0\SistemaPedidosD&G.Domain.pdb
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.csproj.AssemblyReference.cache
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaPedidosD&G.Application.sourcelink.json
+C:\Users\gambe\source\repos\SistemaPedidosD&G\SistemaPedidosD&G.Application\obj\Debug\net9.0\SistemaP.BAF030FD.Up2Date
