@@ -1,10 +1,10 @@
-﻿using SistemaPedidosD_G.Domain.Entities;
+﻿using SistemaPedidosD_G.Application.DTOs;
 using System.Threading.Tasks;
 
 namespace SistemaPedidosD_G.Application.Contracts.UseCases
 {
     public interface IObtenerCarritoUseCase
     {
-        Task<Carrito> EjecutarAsync(string clienteId);
+        Task<CarritoDto> EjecutarAsync(string clienteId);
     }
 }

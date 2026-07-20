@@ -21,16 +21,23 @@ namespace SistemaPedidosD_G.Application.UseCases
 
         public async Task EjecutarAsync(AgregarItemRequest request)
         {
-            // 1. Verificar que el producto existe y está activo
+            if (request.Cantidad <= 0)
+                throw new Exception("La cantidad debe ser mayor a cero.");
+
+    
             var producto = await _productoRepository.ObtenerPorIdAsync(request.ProductoId);
             if (producto == null || !producto.Activo)
                 throw new Exception("El producto no existe o no está disponible.");
 
-            // 2. Verificar stock suficiente
-            if (producto.Stock < request.Cantidad)
-                throw new Exception("No hay suficiente stock disponible.");
+          
+            var carrito = _carritoService.ObtenerCarrito(request.ClienteId);
+            var itemExistente = carrito.Items.Find(i => i.ProductoId == request.ProductoId);
+            var cantidadTotalEnCarrito = (itemExistente?.Cantidad ?? 0) + request.Cantidad;
 
-            // 3. Agregar al carrito en memoria
+            if (producto.Stock < cantidadTotalEnCarrito)
+                throw new Exception($"No hay suficiente stock disponible. Stock actual: {producto.Stock}, solicitado en total: {cantidadTotalEnCarrito}.");
+
+       
             _carritoService.AgregarItem(
                 request.ClienteId,
                 request.ProductoId,
