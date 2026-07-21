@@ -1,11 +1,12 @@
-﻿using Moq;
+﻿using System;
+using System.Threading.Tasks;
+using Moq;
 using SistemaPedidosD_G.Application.Contracts.Persistence;
 using SistemaPedidosD_G.Application.Contracts.UseCases;
 using SistemaPedidosD_G.Application.Services;
 using SistemaPedidosD_G.Application.UseCases;
 using SistemaPedidosD_G.Domain.Entities;
-using System;
-using System.Threading.Tasks;
+using SistemaPedidosD_G.Domain.Exceptions;
 
 namespace SistemaPedidosD_G.Tests.UseCases
 {
@@ -47,7 +48,7 @@ namespace SistemaPedidosD_G.Tests.UseCases
 
             var request = new AgregarItemRequest { ClienteId = "cliente-1", ProductoId = producto.Id, Cantidad = 5 };
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => useCase.EjecutarAsync(request));
+            await Assert.ThrowsExceptionAsync<StockInsuficienteException>(() => useCase.EjecutarAsync(request));
         }
 
         [TestMethod]
@@ -62,8 +63,8 @@ namespace SistemaPedidosD_G.Tests.UseCases
 
             await useCase.EjecutarAsync(new AgregarItemRequest { ClienteId = "cliente-1", ProductoId = producto.Id, Cantidad = 3 });
 
-            await Assert.ThrowsExceptionAsync<Exception>(() =>
-                useCase.EjecutarAsync(new AgregarItemRequest { ClienteId = "cliente-1", ProductoId = producto.Id, Cantidad = 3 }));
+            await Assert.ThrowsExceptionAsync<StockInsuficienteException>(() =>
+    useCase.EjecutarAsync(new AgregarItemRequest { ClienteId = "cliente-1", ProductoId = producto.Id, Cantidad = 3 }));
         }
 
         [TestMethod]
@@ -80,7 +81,7 @@ namespace SistemaPedidosD_G.Tests.UseCases
 
             var request = new AgregarItemRequest { ClienteId = "cliente-1", ProductoId = producto.Id, Cantidad = 1 };
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => useCase.EjecutarAsync(request));
+            await Assert.ThrowsExceptionAsync<ProductoInactivoException>(() => useCase.EjecutarAsync(request));
         }
 
         [TestMethod]
@@ -95,7 +96,7 @@ namespace SistemaPedidosD_G.Tests.UseCases
 
             var request = new AgregarItemRequest { ClienteId = "cliente-1", ProductoId = producto.Id, Cantidad = 0 };
 
-            await Assert.ThrowsExceptionAsync<Exception>(() => useCase.EjecutarAsync(request));
+            await Assert.ThrowsExceptionAsync<ArgumentException>(() => useCase.EjecutarAsync(request));
         }
     }
 }
