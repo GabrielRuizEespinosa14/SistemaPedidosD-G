@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SistemaPedidosD&G.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbe0b0f6afbdb40af0db3dccc33d26fddc5f70cb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61325ba328e700cf55417f475bbc1256474d02b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("SistemaPedidosD&G.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SistemaPedidosD&G.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
