@@ -1,4 +1,5 @@
 ﻿using System;
+using SistemaPedidosD_G.Domain.Exceptions;
 
 namespace SistemaPedidosD_G.Domain.Entities
 {
@@ -31,7 +32,24 @@ namespace SistemaPedidosD_G.Domain.Entities
             Stock = stock;
             ImagenUrl = imagenUrl;
         }
+        public void ReservarStock(int cantidad)
+        {
+            if (cantidad <= 0)
+                throw new ArgumentException("La cantidad a reservar debe ser mayor que cero.");
 
+            if (Stock < cantidad)
+                throw new StockInsuficienteException(Id, cantidad, Stock);
+
+            Stock -= cantidad;
+        }
+
+        public void DevolverStock(int cantidad)
+        {
+            if (cantidad <= 0)
+                throw new ArgumentException("La cantidad a devolver debe ser mayor que cero.");
+
+            Stock += cantidad;
+        }
         public void Activar() => Activo = true;
         public void Desactivar() => Activo = false;
         public bool EstaAgotado() => Stock <= 0;

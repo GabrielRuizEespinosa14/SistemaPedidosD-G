@@ -62,10 +62,20 @@ namespace SistemaPedidosD_G.Domain.Entities
         public void Cancelar()
         {
             if (Estado == EstadoPedido.Completado)
-                throw new CambioEstadoInvalidoException(Estado.ToString(), EstadoPedido.Cancelado.ToString());
+                throw new CambioEstadoInvalidoException(
+                    Estado.ToString(),
+                    EstadoPedido.Cancelado.ToString());
 
             if (Estado == EstadoPedido.Cancelado)
                 throw new PedidoCanceladoException(Id);
+
+            if (Estado is not EstadoPedido.Pendiente
+                and not EstadoPedido.EnPreparacion)
+            {
+                throw new CambioEstadoInvalidoException(
+                    Estado.ToString(),
+                    EstadoPedido.Cancelado.ToString());
+            }
 
             Estado = EstadoPedido.Cancelado;
             FechaActualizacion = DateTime.UtcNow;

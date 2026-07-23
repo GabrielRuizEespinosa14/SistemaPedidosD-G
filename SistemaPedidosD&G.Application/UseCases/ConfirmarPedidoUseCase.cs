@@ -77,6 +77,9 @@ namespace SistemaPedidosD_G.Application.UseCases
                     item.Cantidad,
                     item.PrecioUnitario
                 );
+                producto.ReservarStock(item.Cantidad);
+
+                await _productoRepositorio.ActualizarAsync(producto);
             }
 
             // 5. Guardar el pedido en la BD

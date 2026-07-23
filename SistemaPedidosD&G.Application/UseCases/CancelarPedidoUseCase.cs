@@ -34,13 +34,9 @@ namespace SistemaPedidosD_G.Application.UseCases
                     .ObtenerPorIdAsync(detalle.ProductoId);
 
                 if (producto != null)
-                    producto.Actualizar(
-                        producto.Nombre,
-                        producto.Descripcion,
-                        producto.Precio,
-                        producto.Stock + detalle.Cantidad,
-                        producto.ImagenUrl
-                    );
+                    producto.DevolverStock(detalle.Cantidad);
+
+                await _productoRepositorio.ActualizarAsync(producto);
             }
 
             // 4. Guardar los cambios del pedido
