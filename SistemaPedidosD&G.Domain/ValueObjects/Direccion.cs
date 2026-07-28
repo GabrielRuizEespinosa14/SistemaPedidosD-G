@@ -6,6 +6,8 @@
         public string Sector { get; private set; }
         public string Referencia { get; private set; }
 
+        private Direccion() { Calle = string.Empty; Sector = string.Empty; Referencia = string.Empty; } // Requerido por EF Core
+
         public Direccion(string calle, string sector, string referencia = "")
         {
             if (string.IsNullOrWhiteSpace(calle))
@@ -34,5 +36,6 @@
 
         public override int GetHashCode() =>
             HashCode.Combine(Calle, Sector, Referencia);
+    
     }
 }

@@ -9,6 +9,8 @@ namespace SistemaPedidosD_G.Domain.Entities
         public string ClienteId { get; private set; } = null!;
         public List<ItemCarrito> Items { get; private set; } = new();
 
+        private Carrito() { } // Requerido por EF Core
+
         public Carrito(string clienteId)
         {
             ClienteId = clienteId;
@@ -47,5 +49,6 @@ namespace SistemaPedidosD_G.Domain.Entities
         public decimal ObtenerTotal() => Items.Sum(i => i.ObtenerSubtotal());
 
         public bool EstaVacio() => !Items.Any();
+
     }
 }

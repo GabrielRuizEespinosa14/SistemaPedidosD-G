@@ -9,6 +9,9 @@ namespace SistemaPedidosD_G.Domain.Entities
         public int Cantidad { get; private set; }
         public decimal PrecioUnitario { get; private set; }
 
+
+        private ItemCarrito() { } // Requerido por EF Core
+
         public ItemCarrito(Guid productoId, string nombreProducto, int cantidad, decimal precioUnitario)
         {
             ProductoId = productoId;
@@ -25,5 +28,6 @@ namespace SistemaPedidosD_G.Domain.Entities
         }
 
         public decimal ObtenerSubtotal() => Cantidad * PrecioUnitario;
+
     }
 }

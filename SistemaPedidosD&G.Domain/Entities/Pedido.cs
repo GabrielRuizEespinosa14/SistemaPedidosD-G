@@ -19,6 +19,8 @@ namespace SistemaPedidosD_G.Domain.Entities
         public Guid? RepartidorId { get; private set; }
         public List<DetallePedido> Detalles { get; private set; } = new();
 
+        private Pedido() { } // Requerido por EF Core
+
         public Pedido(string clienteId, string nombreCliente, string telefono,
             MetodoEntrega metodoEntrega, Direccion? direccion = null)
         {
@@ -92,3 +94,4 @@ namespace SistemaPedidosD_G.Domain.Entities
         }
     }
 }
+

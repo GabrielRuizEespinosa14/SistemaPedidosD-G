@@ -13,6 +13,9 @@ namespace SistemaPedidosD_G.Domain.Entities
         public string ImagenUrl { get; private set; } = null!;
         public bool Activo { get; private set; }
 
+
+        private Producto() { } // Requerido por EF Core
+
         public Producto(string nombre, string descripcion, decimal precio, int stock, string imagenUrl)
         {
             Id = Guid.NewGuid();
@@ -53,5 +56,6 @@ namespace SistemaPedidosD_G.Domain.Entities
         public void Activar() => Activo = true;
         public void Desactivar() => Activo = false;
         public bool EstaAgotado() => Stock <= 0;
+
     }
 }

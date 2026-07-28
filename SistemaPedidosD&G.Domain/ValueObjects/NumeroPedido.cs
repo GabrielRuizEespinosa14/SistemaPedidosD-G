@@ -4,6 +4,8 @@
     {
         public string Valor { get; private set; }
 
+        private NumeroPedido() { Valor = string.Empty; } // Requerido por EF Core
+
         public NumeroPedido(string valor)
         {
             if (string.IsNullOrWhiteSpace(valor))
@@ -31,5 +33,6 @@
         }
 
         public override int GetHashCode() => HashCode.Combine(Valor);
+
     }
 }

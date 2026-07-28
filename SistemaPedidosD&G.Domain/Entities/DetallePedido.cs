@@ -11,6 +11,9 @@ namespace SistemaPedidosD_G.Domain.Entities
         public int Cantidad { get; private set; }
         public Dinero PrecioUnitario { get; private set; } = null!;
 
+
+        private DetallePedido() { } // Requerido por EF Core
+
         public DetallePedido(Guid pedidoId, Guid productoId, string nombreProducto, int cantidad, decimal precioUnitario)
         {
             Id = Guid.NewGuid();
@@ -22,5 +25,6 @@ namespace SistemaPedidosD_G.Domain.Entities
         }
 
         public Dinero ObtenerSubtotal() => PrecioUnitario.Multiplicar(Cantidad);
+
     }
 }

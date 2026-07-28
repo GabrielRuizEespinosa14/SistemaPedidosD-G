@@ -5,6 +5,8 @@
         public decimal Valor { get; private set; }
         public string Moneda { get; private set; }
 
+        private Dinero() { Moneda = "DOP"; } // Requerido por EF Core
+
         public Dinero(decimal valor, string moneda = "DOP")
         {
             if (valor < 0)
@@ -37,5 +39,7 @@
         }
 
         public override int GetHashCode() => HashCode.Combine(Valor, Moneda);
+    
     }
 }
+

@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SistemaPedidosD&amp;G.Application\SistemaPedidosD&amp;G.Application.csproj" />
     <ProjectReference Include="..\SistemaPedidosD&amp;G.Domain\SistemaPedidosD&amp;G.Domain.csproj" />
+    <ProjectReference Include="..\SistemaPedidosD&amp;G.Infrastructure\SistemaPedidosD&amp;G.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

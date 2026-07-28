@@ -6,6 +6,8 @@ namespace SistemaPedidosD_G.Domain.ValueObjects
     {
         public string Valor { get; private set; }
 
+        private Telefono() { Valor = string.Empty; } // Requerido por EF Core
+
         public Telefono(string valor)
         {
             if (string.IsNullOrWhiteSpace(valor))
@@ -28,5 +30,6 @@ namespace SistemaPedidosD_G.Domain.ValueObjects
         }
 
         public override int GetHashCode() => HashCode.Combine(Valor);
+
     }
 }

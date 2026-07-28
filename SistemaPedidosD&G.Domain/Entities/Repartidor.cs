@@ -11,6 +11,9 @@ namespace SistemaPedidosD_G.Domain.Entities
         public EstadoRepartidor Estado { get; private set; }
         public DateTime FechaRegistro { get; private set; }
 
+
+        private Repartidor() { } // Requerido por EF Core
+
         public Repartidor(string nombre, string telefono)
         {
             Id = Guid.NewGuid();
@@ -25,5 +28,6 @@ namespace SistemaPedidosD_G.Domain.Entities
         public void MarcarOcupado() => Estado = EstadoRepartidor.Ocupado;
         public void MarcarDisponible() => Estado = EstadoRepartidor.Disponible;
         public bool EstaDisponible() => Estado == EstadoRepartidor.Disponible;
+
     }
 }
