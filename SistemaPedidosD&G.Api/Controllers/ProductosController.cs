@@ -69,7 +69,5 @@ namespace SistemaPedidosD_G.Api.Controllers
 
             return Ok(productos);
         }
-
-
     }
 }
