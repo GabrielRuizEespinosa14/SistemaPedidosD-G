@@ -17,7 +17,9 @@ namespace SistemaPedidosD_G.Domain.Entities
         public DateTime FechaCreacion { get; private set; }
         public DateTime? FechaActualizacion { get; private set; }
         public Guid? RepartidorId { get; private set; }
+        public DateTime? FechaCancelacion { get; private set; }
         public List<DetallePedido> Detalles { get; private set; } = new();
+        public List<HistorialPedido> Historial { get; private set; } = new();
 
         private Pedido() { } // Requerido por EF Core
 
@@ -33,6 +35,10 @@ namespace SistemaPedidosD_G.Domain.Entities
             Direccion = direccion;
             Estado = EstadoPedido.Pendiente;
             FechaCreacion = DateTime.UtcNow;
+            Historial.Add(new HistorialPedido(
+    Id,
+    EstadoPedido.Pendiente,
+    "Pedido creado"));
         }
 
         public void AgregarDetalle(Guid productoId, string nombreProducto, int cantidad, decimal precioUnitario)
@@ -81,6 +87,13 @@ namespace SistemaPedidosD_G.Domain.Entities
 
             Estado = EstadoPedido.Cancelado;
             FechaActualizacion = DateTime.UtcNow;
+
+            Historial.Add(
+    new HistorialPedido(
+        Id,
+        Estado,
+        $"Estado cambiado a {Estado}"
+    ));
         }
 
         public void AsignarRepartidor(Guid repartidorId)

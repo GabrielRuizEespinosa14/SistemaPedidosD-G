@@ -15,6 +15,8 @@ namespace SistemaPedidosD_G.Infrastructure.Persistence
         public DbSet<Repartidor> Repartidores { get; set; } = null!;
         public DbSet<Carrito> Carritos { get; set; } = null!;
 
+        public DbSet<HistorialPedido> HistorialPedidos => Set<HistorialPedido>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(SistemaPedidosDGDbContext).Assembly);

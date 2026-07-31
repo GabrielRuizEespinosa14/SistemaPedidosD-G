@@ -8,39 +8,51 @@ namespace SistemaPedidosD_G.Application.UseCases
     {
         private readonly IPedidoRepositorio _pedidoRepositorio;
         private readonly IRepositorio _productoRepositorio;
-
+        private readonly IUnitOfWork _unitOfWork;
         public CancelarPedidoUseCase(
-            IPedidoRepositorio pedidoRepositorio,
-            IRepositorio productoRepositorio)
+      IPedidoRepositorio pedidoRepositorio,
+      IRepositorio productoRepositorio,
+      IUnitOfWork unitOfWork)
         {
             _pedidoRepositorio = pedidoRepositorio;
             _productoRepositorio = productoRepositorio;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task EjecutarAsync(Guid pedidoId)
         {
-            // 1. Obtener el pedido
-            var pedido = await _pedidoRepositorio.ObtenerPorIdAsync(pedidoId);
-            if (pedido == null)
-                throw new PedidoNoEncontradoException(pedidoId);
+            await _unitOfWork.BeginTransactionAsync();
 
-            // 2. Cancelar el pedido usando la lógica de la entidad
-            pedido.Cancelar();
-
-            // 3. Retornar el stock de cada producto
-            foreach (var detalle in pedido.Detalles)
+            try
             {
-                var producto = await _productoRepositorio
-                    .ObtenerPorIdAsync(detalle.ProductoId);
+                var pedido = await _pedidoRepositorio.ObtenerPorIdAsync(pedidoId);
 
-                if (producto != null)
+                if (pedido == null)
+                    throw new PedidoNoEncontradoException(pedidoId);
+
+                pedido.Cancelar();
+
+                foreach (var detalle in pedido.Detalles)
+                {
+                    var producto = await _productoRepositorio.ObtenerPorIdAsync(detalle.ProductoId);
+
+                    if (producto == null)
+                        continue;
+
                     producto.DevolverStock(detalle.Cantidad);
 
-                await _productoRepositorio.ActualizarAsync(producto);
-            }
+                    await _productoRepositorio.ActualizarAsync(producto);
+                }
 
-            // 4. Guardar los cambios del pedido
-            await _pedidoRepositorio.ActualizarAsync(pedido);
+                await _pedidoRepositorio.ActualizarAsync(pedido);
+
+                await _unitOfWork.CommitAsync();
+            }
+            catch
+            {
+                await _unitOfWork.RollbackAsync();
+                throw;
+            }
         }
     }
 }
