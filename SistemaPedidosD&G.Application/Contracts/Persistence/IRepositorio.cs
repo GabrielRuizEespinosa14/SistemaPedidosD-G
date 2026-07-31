@@ -13,5 +13,7 @@ namespace SistemaPedidosD_G.Application.Contracts.Persistence
         Task AgregarAsync(Producto producto);
         Task ActualizarAsync(Producto producto);
         Task EliminarAsync(Guid id);
+
+        Task<IEnumerable<Producto>> BuscarPorNombreAsync(string nombre);
     }
 }

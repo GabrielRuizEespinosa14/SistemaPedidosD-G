@@ -23,6 +23,8 @@ namespace SistemaPedidosD_G.Infrastructure.DependencyInjection
 
             services.AddScoped<ActivarProductoUseCase>();
             services.AddScoped<DesactivarProductoUseCase>();
+            services.AddScoped<BuscarProductosUseCase>();
+
             services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
             services.AddScoped<IRepartidorRepositorio, RepartidorRepositorio>();
             services.AddScoped<ICarritoRepositorio, CarritoRepositorio>();

@@ -52,5 +52,20 @@ namespace SistemaPedidosD_G.Infrastructure.Persistence.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task<IEnumerable<Producto>> BuscarPorNombreAsync(string nombre)
+        {
+            nombre = nombre.ToLower();
+
+
+            return await _context.Productos
+                .AsNoTracking()
+                .Where(p =>
+                    p.Activo &&
+                    p.Stock > 0 &&
+                    p.Nombre.ToLower().Contains(nombre)
+                )
+                .ToListAsync();
+        }
     }
 }
