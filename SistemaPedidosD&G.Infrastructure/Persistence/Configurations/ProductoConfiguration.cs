@@ -27,7 +27,8 @@ namespace SistemaPedidosD_G.Infrastructure.Persistence.Configurations
 
             builder.Property(p => p.Activo)
                 .IsRequired();
-
+            builder.Property(p => p.FechaDesactivacion)
+    .IsRequired(false);
             builder.HasIndex(p => p.Nombre);
             builder.HasIndex(p => p.Activo);
         }

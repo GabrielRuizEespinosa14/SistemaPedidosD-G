@@ -57,9 +57,12 @@ public class CancelarPedidoUseCaseTests
             .Setup(r => r.ActualizarAsync(producto))
             .Returns(Task.CompletedTask);
 
+        var unitOfWork = new Mock<IUnitOfWork>();
+
         var useCase = new CancelarPedidoUseCase(
             pedidoRepositorio.Object,
-            productoRepositorio.Object);
+            productoRepositorio.Object,
+            unitOfWork.Object);
 
         // Act
         await useCase.EjecutarAsync(pedido.Id);
@@ -114,9 +117,12 @@ public class CancelarPedidoUseCaseTests
             .Setup(r => r.ObtenerPorIdAsync(producto.Id))
             .ReturnsAsync(producto);
 
+        var unitOfWork = new Mock<IUnitOfWork>();
+
         var useCase = new CancelarPedidoUseCase(
             pedidoRepositorio.Object,
-            productoRepositorio.Object);
+            productoRepositorio.Object,
+            unitOfWork.Object);
 
         // Act y Assert
         await Assert.ThrowsExceptionAsync<CambioEstadoInvalidoException>(

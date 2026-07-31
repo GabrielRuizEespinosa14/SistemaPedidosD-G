@@ -12,7 +12,7 @@ namespace SistemaPedidosD_G.Domain.Entities
         public int Stock { get; private set; }
         public string ImagenUrl { get; private set; } = null!;
         public bool Activo { get; private set; }
-
+        public DateTime? FechaDesactivacion { get; private set; }
 
         private Producto() { } // Requerido por EF Core
 
@@ -25,6 +25,7 @@ namespace SistemaPedidosD_G.Domain.Entities
             Stock = stock;
             ImagenUrl = imagenUrl;
             Activo = true;
+            FechaDesactivacion = null;
         }
 
         public void Actualizar(string nombre, string descripcion, decimal precio, int stock, string imagenUrl)
@@ -53,8 +54,16 @@ namespace SistemaPedidosD_G.Domain.Entities
 
             Stock += cantidad;
         }
-        public void Activar() => Activo = true;
-        public void Desactivar() => Activo = false;
+        public void Activar()
+        {
+            Activo = true;
+            FechaDesactivacion = null;
+        }
+        public void Desactivar()
+        {
+            Activo = false;
+            FechaDesactivacion = DateTime.UtcNow;
+        }
         public bool EstaAgotado() => Stock <= 0;
 
     }
