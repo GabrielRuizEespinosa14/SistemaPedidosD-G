@@ -1,10 +1,14 @@
 ﻿using System;
+using SistemaPedidosD_G.Domain.Enums;          
 using SistemaPedidosD_G.Domain.Exceptions;
 
 namespace SistemaPedidosD_G.Domain.Entities
 {
     public class Producto
     {
+  
+        private const int UmbralStockBajo = 5;
+
         public Guid Id { get; private set; }
         public string Nombre { get; private set; } = null!;
         public string Descripcion { get; private set; } = null!;
@@ -14,7 +18,7 @@ namespace SistemaPedidosD_G.Domain.Entities
         public bool Activo { get; private set; }
         public DateTime? FechaDesactivacion { get; private set; }
 
-        private Producto() { } // Requerido por EF Core
+        private Producto() { }
 
         public Producto(string nombre, string descripcion, decimal precio, int stock, string imagenUrl)
         {
@@ -28,6 +32,7 @@ namespace SistemaPedidosD_G.Domain.Entities
             FechaDesactivacion = null;
         }
 
+
         public void Actualizar(string nombre, string descripcion, decimal precio, int stock, string imagenUrl)
         {
             Nombre = nombre;
@@ -36,6 +41,7 @@ namespace SistemaPedidosD_G.Domain.Entities
             Stock = stock;
             ImagenUrl = imagenUrl;
         }
+
         public void ReservarStock(int cantidad)
         {
             if (cantidad <= 0)
@@ -54,17 +60,32 @@ namespace SistemaPedidosD_G.Domain.Entities
 
             Stock += cantidad;
         }
+
         public void Activar()
         {
             Activo = true;
             FechaDesactivacion = null;
         }
+
         public void Desactivar()
         {
             Activo = false;
             FechaDesactivacion = DateTime.UtcNow;
         }
+
         public bool EstaAgotado() => Stock <= 0;
 
+        public bool TieneStockBajo() => Stock > 0 && Stock < UmbralStockBajo;
+
+        public EstadoDisponibilidad ObtenerDisponibilidad()
+        {
+            if (EstaAgotado())
+                return EstadoDisponibilidad.Agotado;
+
+            if (TieneStockBajo())
+                return EstadoDisponibilidad.UltimasUnidades;
+
+            return EstadoDisponibilidad.Disponible;
+        }
     }
 }
