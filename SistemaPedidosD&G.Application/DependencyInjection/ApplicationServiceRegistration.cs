@@ -35,6 +35,11 @@ namespace SistemaPedidosD_G.Application.DependencyInjection
 
             // Casos de uso - Repartidores
             services.AddScoped<IAsignarRepartidorUseCase, AsignarRepartidorUseCase>();
+            services.AddScoped<ICrearRepartidorUseCase, CrearRepartidorUseCase>();
+            services.AddScoped<IActualizarRepartidorUseCase, ActualizarRepartidorUseCase>();
+            services.AddScoped<IDesactivarRepartidorUseCase, DesactivarRepartidorUseCase>();
+            services.AddScoped<IObtenerRepartidoresUseCase, ObtenerRepartidoresUseCase>();
+            services.AddScoped<IObtenerRepartidoresDisponiblesUseCase, ObtenerRepartidoresDisponiblesUseCase>();
 
             return services;
         }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPedidosD_G.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using SistemaPedidosD_G.Infrastructure.Persistence;
 namespace SistemaPedidosD_G.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaPedidosDGDbContext))]
-    partial class SistemaPedidosDGDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260805052659_AgregarFechaDesactivacionProducto")]
+    partial class AgregarFechaDesactivacionProducto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -16,13 +16,23 @@ namespace SistemaPedidosD_G.Domain.Entities
 
         public Repartidor(string nombre, string telefono)
         {
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre del repartidor es obligatorio.");
+
             Id = Guid.NewGuid();
-            Nombre = nombre;
+            Nombre = nombre.Trim();
             Telefono = new Telefono(telefono);
             Estado = EstadoRepartidor.Disponible;
             FechaRegistro = DateTime.UtcNow;
         }
+        public void ActualizarDatos(string nombre, string telefono)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre del repartidor es obligatorio.");
 
+            Nombre = nombre.Trim();
+            Telefono = new Telefono(telefono);
+        }
         public void Activar() => Estado = EstadoRepartidor.Disponible;
         public void Desactivar() => Estado = EstadoRepartidor.Inactivo;
         public void MarcarOcupado() => Estado = EstadoRepartidor.Ocupado;
