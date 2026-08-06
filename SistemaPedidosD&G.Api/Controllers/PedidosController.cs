@@ -3,7 +3,9 @@ using SistemaPedidosD_G.Application.Contracts.UseCases;
 
 namespace SistemaPedidosD_G.Api.Controllers
 {
-    public class PedidosController : Controller
+    [ApiController]
+    [Route("api/pedidos")]
+    public class PedidosController : ControllerBase
     {
         private readonly ICancelarPedidoUseCase _cancelarPedidoUseCase;
 
@@ -11,10 +13,6 @@ namespace SistemaPedidosD_G.Api.Controllers
             ICancelarPedidoUseCase cancelarPedidoUseCase)
         {
             _cancelarPedidoUseCase = cancelarPedidoUseCase;
-        }
-        public IActionResult Index()
-        {
-            return View();
         }
 
         [HttpPut("{id}/cancelar")]

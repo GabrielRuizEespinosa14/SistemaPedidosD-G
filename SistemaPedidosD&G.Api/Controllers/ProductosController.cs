@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaPedidosD_G.Application.Contracts.UseCases;
-using SistemaPedidosD_G.Application.UseCases;
+using System.Linq;
 
 namespace SistemaPedidosD_G.Api.Controllers
 {
@@ -9,15 +9,15 @@ namespace SistemaPedidosD_G.Api.Controllers
     public class ProductosController : ControllerBase
     {
         private readonly IObtenerProductosUseCase _obtenerProductos;
-        private readonly ActivarProductoUseCase _activarProducto;
-        private readonly DesactivarProductoUseCase _desactivarProducto;
-        private readonly BuscarProductosUseCase _buscarProductos;
+        private readonly IActivarProductoUseCase _activarProducto;
+        private readonly IDesactivarProductoUseCase _desactivarProducto;
+        private readonly IBuscarProductosUseCase _buscarProductos;
 
         public ProductosController(
             IObtenerProductosUseCase obtenerProductos,
-            ActivarProductoUseCase activarProducto,
-            DesactivarProductoUseCase desactivarProducto,
-            BuscarProductosUseCase buscarProductos)
+            IActivarProductoUseCase activarProducto,
+            IDesactivarProductoUseCase desactivarProducto,
+            IBuscarProductosUseCase buscarProductos)
         {
             _obtenerProductos = obtenerProductos;
             _activarProducto = activarProducto;

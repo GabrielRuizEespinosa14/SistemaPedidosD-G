@@ -24,6 +24,9 @@ namespace SistemaPedidosD_G.Application.DependencyInjection
             // Casos de uso - Productos
             services.AddScoped<ICrearProductoUseCase, CrearProductoUseCase>();
             services.AddScoped<IObtenerProductosUseCase, ObtenerProductosUseCase>();
+            services.AddScoped<IActivarProductoUseCase, ActivarProductoUseCase>();
+            services.AddScoped<IDesactivarProductoUseCase, DesactivarProductoUseCase>();
+            services.AddScoped<IBuscarProductosUseCase, BuscarProductosUseCase>();
 
             // Casos de uso - Pedidos
             services.AddScoped<ICambiarEstadoPedidoUseCase, CambiarEstadoPedidoUseCase>();
