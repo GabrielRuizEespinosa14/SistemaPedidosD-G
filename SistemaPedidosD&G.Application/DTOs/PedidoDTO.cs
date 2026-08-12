@@ -1,4 +1,5 @@
-﻿using SistemaPedidosD_G.Domain.Enums;
+﻿using SistemaPedidosD_G.Application.DTOs;
+using SistemaPedidosD_G.Domain.Enums;
 
 namespace SistemaPedidosD_G.Application.DTO
 {
@@ -14,6 +15,7 @@ namespace SistemaPedidosD_G.Application.DTO
         public DateTime FechaCreacion { get; set; }
         public decimal Total { get; set; }
         public List<DetallePedidoDTO> Detalles { get; set; } = new();
+        public List<HistorialPedidoDTO> Historial { get; set; } = new();
     }
 
     public class DetallePedidoDTO

@@ -1,6 +1,7 @@
 ﻿using SistemaPedidosD_G.Application.Contracts.Persistence;
 using SistemaPedidosD_G.Application.Contracts.UseCases;
 using SistemaPedidosD_G.Application.DTO;
+using SistemaPedidosD_G.Application.Extensions;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace SistemaPedidosD_G.Application.UseCases
                 ? await _productoRepositorio.ObtenerActivosAsync()
                 : await _productoRepositorio.ObtenerTodosAsync();
 
-            return productos.Select(ProductoDTO.DesdeEntidad);
+            return productos.Select(producto => producto.ToDTO());
         }
     }
 }
