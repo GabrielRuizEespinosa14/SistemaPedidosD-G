@@ -12,17 +12,23 @@ namespace SistemaPedidosD_G.Api.Controllers
         private readonly IActivarProductoUseCase _activarProducto;
         private readonly IDesactivarProductoUseCase _desactivarProducto;
         private readonly IBuscarProductosUseCase _buscarProductos;
+        private readonly ICrearProductoUseCase _crearProducto;
+        private readonly IActualizarProductoUseCase _actualizarProducto;
 
         public ProductosController(
             IObtenerProductosUseCase obtenerProductos,
             IActivarProductoUseCase activarProducto,
             IDesactivarProductoUseCase desactivarProducto,
-            IBuscarProductosUseCase buscarProductos)
+            IBuscarProductosUseCase buscarProductos,
+            ICrearProductoUseCase crearProducto,
+            IActualizarProductoUseCase actualizarProducto)
         {
             _obtenerProductos = obtenerProductos;
             _activarProducto = activarProducto;
             _desactivarProducto = desactivarProducto;
             _buscarProductos = buscarProductos;
+            _crearProducto = crearProducto;
+            _actualizarProducto = actualizarProducto;
         }
 
         [HttpGet]
@@ -57,6 +63,20 @@ namespace SistemaPedidosD_G.Api.Controllers
             }
 
             return Ok(productos);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> Crear([FromBody] CrearProductoRequest request)
+        {
+            await _crearProducto.EjecutarAsync(request);
+            return Ok(new { mensaje = "Producto creado correctamente" });
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Actualizar(Guid id, [FromBody] ActualizarProductoRequest request)
+        {
+            await _actualizarProducto.EjecutarAsync(id, request);
+            return Ok(new { mensaje = "Producto actualizado correctamente" });
         }
     }
 }
