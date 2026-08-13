@@ -1,4 +1,5 @@
-﻿using SistemaPedidosD_G.Domain.Enums;
+﻿using SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido;
+using SistemaPedidosD_G.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

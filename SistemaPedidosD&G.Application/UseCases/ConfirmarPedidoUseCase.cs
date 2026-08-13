@@ -2,7 +2,7 @@
 using SistemaPedidosD_G.Application.Contracts.Services;
 using SistemaPedidosD_G.Application.Contracts.UseCases;
 using SistemaPedidosD_G.Application.DTO;
-using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido;
 using SistemaPedidosD_G.Domain.Enums;
 using SistemaPedidosD_G.Domain.Exceptions;
 using SistemaPedidosD_G.Domain.ValueObjects;

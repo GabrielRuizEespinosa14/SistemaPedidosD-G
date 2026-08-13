@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPedidosD_G.Infrastructure.Persistence;
+using SistemaPedidosD_G.Domain.Aggregates;
 
 #nullable disable
 

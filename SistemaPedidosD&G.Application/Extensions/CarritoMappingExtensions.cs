@@ -1,5 +1,6 @@
 ﻿using SistemaPedidosD_G.Application.DTOs;
-using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito;
+using SistemaPedidosD_G.Domain.Aggregates;
 using System;
 using System.Collections.Generic;
 using System.Linq;

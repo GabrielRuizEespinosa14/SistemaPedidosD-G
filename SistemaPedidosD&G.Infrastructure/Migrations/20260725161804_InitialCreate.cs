@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
+using SistemaPedidosD_G.Domain.Aggregates;
 
 #nullable disable
 

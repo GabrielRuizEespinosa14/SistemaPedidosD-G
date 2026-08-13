@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SistemaPedidosD_G.Domain.Entities
+namespace SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito
 {
     public class Carrito
     {

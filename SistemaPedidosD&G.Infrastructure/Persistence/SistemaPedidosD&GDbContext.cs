@@ -1,4 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido;
+using SistemaPedidosD_G.Domain.Aggregates;
 using SistemaPedidosD_G.Domain.Entities;
 
 namespace SistemaPedidosD_G.Infrastructure.Persistence

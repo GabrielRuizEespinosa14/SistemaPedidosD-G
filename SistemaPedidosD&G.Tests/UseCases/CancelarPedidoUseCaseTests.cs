@@ -2,10 +2,12 @@
 using Moq;
 using SistemaPedidosD_G.Application.Contracts.Persistence;
 using SistemaPedidosD_G.Application.UseCases;
-using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Aggregates;
 using SistemaPedidosD_G.Domain.Enums;
 using SistemaPedidosD_G.Domain.ValueObjects;
 using SistemaPedidosD_G.Domain.Exceptions;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido;
+using SistemaPedidosD_G.Domain.Entities;
 
 namespace SistemaPedidosD_G.Tests.UseCases;
 

@@ -1,5 +1,7 @@
 ﻿using SistemaPedidosD_G.Application.DTO;
 using SistemaPedidosD_G.Application.DTOs;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido;
+using SistemaPedidosD_G.Domain.Aggregates;
 using SistemaPedidosD_G.Domain.Entities;
 using System;
 using System.Collections.Generic;

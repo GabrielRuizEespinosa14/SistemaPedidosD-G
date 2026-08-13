@@ -1,6 +1,6 @@
 ﻿using SistemaPedidosD_G.Domain.ValueObjects;
 
-namespace SistemaPedidosD_G.Domain.Entities
+namespace SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido
 {
     public class DetallePedido
     {
