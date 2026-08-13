@@ -1,4 +1,5 @@
-﻿using SistemaPedidosD_G.Domain.Entities;
+﻿using SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito;
+using SistemaPedidosD_G.Domain.Aggregates;
 using System;
 
 namespace SistemaPedidosD_G.Application.Contracts.Services

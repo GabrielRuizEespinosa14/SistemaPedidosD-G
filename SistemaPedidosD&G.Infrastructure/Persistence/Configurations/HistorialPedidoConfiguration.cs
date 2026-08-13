@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Aggregates;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SistemaPedidosD_G.Domain.Entities;
 
 namespace SistemaPedidosD_G.Infrastructure.Persistence.Configurations
 {

@@ -1,8 +1,9 @@
-﻿using SistemaPedidosD_G.Domain.Enums;
+﻿using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Enums;
 using SistemaPedidosD_G.Domain.Exceptions;
 using SistemaPedidosD_G.Domain.ValueObjects;
 
-namespace SistemaPedidosD_G.Domain.Entities
+namespace SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido
 {
     public class Pedido
     {

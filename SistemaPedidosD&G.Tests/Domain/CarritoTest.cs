@@ -1,4 +1,4 @@
-﻿using SistemaPedidosD_G.Domain.Entities;
+﻿using SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito;
 using System;
 
 namespace SistemaPedidosD_G.Tests.Domain

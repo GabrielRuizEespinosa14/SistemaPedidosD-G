@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito;
+using SistemaPedidosD_G.Domain.Aggregates;
 
 namespace SistemaPedidosD_G.Infrastructure.Persistence.Configurations
 {

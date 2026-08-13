@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 
 namespace SistemaPedidosD_G.Application.Contracts.UseCases
 {
-    public interface IObtenerProductosUseCase
+    public interface IBuscarProductosUseCase
     {
-        Task<IEnumerable<ProductoDTO>> EjecutarAsync(bool soloActivos = true);
+        Task<IEnumerable<ProductoDTO>> Ejecutar(string? nombre = null);
     }
 }

@@ -21,9 +21,14 @@ namespace SistemaPedidosD_G.Application.DependencyInjection
             services.AddScoped<IVaciarCarritoUseCase, VaciarCarritoUseCase>();
             services.AddScoped<IProcesarCheckoutUseCase, ProcesarCheckoutUseCase>();
 
+
             // Casos de uso - Productos
             services.AddScoped<ICrearProductoUseCase, CrearProductoUseCase>();
             services.AddScoped<IObtenerProductosUseCase, ObtenerProductosUseCase>();
+            services.AddScoped<IActivarProductoUseCase, ActivarProductoUseCase>();
+            services.AddScoped<IDesactivarProductoUseCase, DesactivarProductoUseCase>();
+            services.AddScoped<IBuscarProductosUseCase, BuscarProductosUseCase>();
+            services.AddScoped<IActualizarProductoUseCase, ActualizarProductoUseCase>();
 
             // Casos de uso - Pedidos
             services.AddScoped<ICambiarEstadoPedidoUseCase, CambiarEstadoPedidoUseCase>();

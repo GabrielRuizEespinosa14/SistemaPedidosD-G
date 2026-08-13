@@ -1,15 +1,14 @@
 ﻿using SistemaPedidosD_G.Application.Contracts.Persistence;
-using SistemaPedidosD_G.Domain.Entities;
-using System;
+using SistemaPedidosD_G.Application.Contracts.UseCases;
+using SistemaPedidosD_G.Application.DTO;
+using SistemaPedidosD_G.Application.Extensions;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
 
 namespace SistemaPedidosD_G.Application.UseCases
 {
-    public class BuscarProductosUseCase
+    public class BuscarProductosUseCase : IBuscarProductosUseCase
     {
         private readonly IRepositorio _repositorio;
 
@@ -18,15 +17,13 @@ namespace SistemaPedidosD_G.Application.UseCases
             _repositorio = repositorio;
         }
 
-        public async Task<IEnumerable<Producto>> Ejecutar(string nombre)
+        public async Task<IEnumerable<ProductoDTO>> Ejecutar(string? nombre = null)
         {
-            if (string.IsNullOrWhiteSpace(nombre))
-            {
-                return await _repositorio.ObtenerActivosAsync();
-            }
+            var productos = string.IsNullOrWhiteSpace(nombre)
+                ? await _repositorio.ObtenerActivosAsync()
+                : await _repositorio.BuscarPorNombreAsync(nombre);
 
-            return await _repositorio.BuscarPorNombreAsync(nombre);
+            return productos.Select(producto => producto.ToDTO());
         }
     }
 }
-

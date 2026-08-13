@@ -1,5 +1,5 @@
-﻿using SistemaPedidosD_G.Domain.Entities;
-
+﻿using SistemaPedidosD_G.Domain.Aggregates.AggregatesPedido;
+using SistemaPedidosD_G.Domain.Aggregates;
 namespace SistemaPedidosD_G.Application.Contracts.Persistence
 {
     public interface IPedidoRepositorio

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SistemaPedidosD_G.Application.Contracts.Persistence;
-using SistemaPedidosD_G.Domain.Entities;
+using SistemaPedidosD_G.Domain.Aggregates.AggregatesCarrito;
 
 namespace SistemaPedidosD_G.Infrastructure.Persistence.Repositories
 {

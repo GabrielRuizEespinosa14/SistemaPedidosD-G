@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SistemaPedidosD_G.Infrastructure.Persistence;
 using SistemaPedidosD_G.Domain.Aggregates;
@@ -12,9 +13,11 @@ using SistemaPedidosD_G.Domain.Aggregates;
 namespace SistemaPedidosD_G.Infrastructure.Migrations
 {
     [DbContext(typeof(SistemaPedidosDGDbContext))]
-    partial class SistemaPedidosDGDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260806162444_AgregarFechaDesactivacion")]
+    partial class AgregarFechaDesactivacion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,33 +35,6 @@ namespace SistemaPedidosD_G.Infrastructure.Migrations
                     b.HasKey("ClienteId");
 
                     b.ToTable("Carritos", (string)null);
-                });
-
-            modelBuilder.Entity("SistemaPedidosD_G.Domain.Entities.Cliente", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Correo")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime>("FechaRegistro")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("Correo")
-                        .IsUnique();
-
-                    b.ToTable("Clientes", (string)null);
                 });
 
             modelBuilder.Entity("SistemaPedidosD_G.Domain.Entities.HistorialPedido", b =>
@@ -236,34 +212,6 @@ namespace SistemaPedidosD_G.Infrastructure.Migrations
                         });
 
                     b.Navigation("Items");
-                });
-
-            modelBuilder.Entity("SistemaPedidosD_G.Domain.Entities.Cliente", b =>
-                {
-                    b.OwnsOne("SistemaPedidosD_G.Domain.ValueObjects.Telefono", "Telefono", b1 =>
-                        {
-                            b1.Property<Guid>("ClienteId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Valor")
-                                .IsRequired()
-                                .HasMaxLength(20)
-                                .HasColumnType("nvarchar(20)")
-                                .HasColumnName("Telefono");
-
-                            b1.HasKey("ClienteId");
-
-                            b1.HasIndex("Valor")
-                                .IsUnique();
-
-                            b1.ToTable("Clientes");
-
-                            b1.WithOwner()
-                                .HasForeignKey("ClienteId");
-                        });
-
-                    b.Navigation("Telefono")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("SistemaPedidosD_G.Domain.Entities.HistorialPedido", b =>
