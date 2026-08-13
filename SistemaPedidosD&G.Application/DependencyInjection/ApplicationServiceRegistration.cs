@@ -41,6 +41,9 @@ namespace SistemaPedidosD_G.Application.DependencyInjection
             services.AddScoped<IObtenerRepartidoresUseCase, ObtenerRepartidoresUseCase>();
             services.AddScoped<IObtenerRepartidoresDisponiblesUseCase, ObtenerRepartidoresDisponiblesUseCase>();
 
+            // Casos de uso - Clientes
+            services.AddScoped<IRegistrarClienteUseCase, RegistrarClienteUseCase>();
+
             return services;
         }
     }

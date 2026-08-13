@@ -27,6 +27,7 @@ namespace SistemaPedidosD_G.Infrastructure.DependencyInjection
 
             services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
             services.AddScoped<IRepartidorRepositorio, RepartidorRepositorio>();
+            services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
             services.AddScoped<ICarritoRepositorio, CarritoRepositorio>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();

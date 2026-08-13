@@ -13,6 +13,7 @@ namespace SistemaPedidosD_G.Infrastructure.Persistence
         public DbSet<Producto> Productos { get; set; } = null!;
         public DbSet<Pedido> Pedidos { get; set; } = null!;
         public DbSet<Repartidor> Repartidores { get; set; } = null!;
+        public DbSet<Cliente> Clientes { get; set; } = null!;
         public DbSet<Carrito> Carritos { get; set; } = null!;
 
         public DbSet<HistorialPedido> HistorialPedidos => Set<HistorialPedido>();
